@@ -1,51 +1,43 @@
-import logo from './logo.svg';
-import React, {Component} from 'react';
+//import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import Customer from "./components/Customer"
 
-class Subject extends Component {
-  render() {
-    return (
-      <header>
-        <h1>WEB</h1>
-        world wide web !
-      </header>
-    );
-  }
+//데이터 변조 방지: 읽기전용상수 이용(codnst)
+const customers = [{
+  'id': 1,
+  'image': 'https://placeimg.com/64/64/1',
+  'name': '김길동',
+  'birthday': '2000-01-20',
+  'gender': '남자',
+  'job': '대학생',
+},
+{
+  'id': 2,
+  'image': 'https://placeimg.com/64/64/2',
+  'name': '조길동',
+  'birthday': '1986-01-20',
+  'gender': '여자',
+  'job': '사업가',
+},
+{
+  'id': 3,
+  'image': 'https://placeimg.com/64/64/3',
+  'name': '박호박',
+  'birthday': '1975-12-25',
+  'gender': '남자',
+  'job': '자영업',
 }
 
-class TOC extends Component{
-  render(){
-    return(
-      <nav>
-        <ul>
-            <li><a href="1.html">HtML</a></li>
-            <li><a href="2.html">CSS</a></li>
-            <li><a href="3.html">Javascript</a></li>
-        </ul>
-    </nav>
-    );
-  }
-}
-
-class Content extends Component{
-  render(){
-    return(
-      <article>
-      <h2>HTML</h2>
-      HTML is HyperText Markup Language.
-  </article>
-    );
-  }
-}
+]
 
 
 function App() {
   return (
-    <div className="App">
-      <Subject></Subject>
-      <TOC></TOC>
-      <Content></Content>
-    </div>
+    customers.map(c => {
+      //map 이용시는 꼭  key 를 고유값으로 넘겨라..
+      return (<Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job}/>)
+    })
   );
 }
 
