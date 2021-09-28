@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App';//App.js 에서 확장자 생략
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
